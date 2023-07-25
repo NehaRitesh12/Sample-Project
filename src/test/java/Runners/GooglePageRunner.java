@@ -8,9 +8,13 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions (
 		features = "src\\test\\resources\\Features\\GoogleSearchPage.feature",
 		glue = {"StefDefs"},
-		monochrome = true
+		monochrome = true,
+		plugin = {"pretty",
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"			
+		}
 )
-public class GooglePageRunner extends AbstractTestNGCucumberTests {
+public class GooglePageRunner extends AbstractTestNGCucumberTests{
    
   }
+
 

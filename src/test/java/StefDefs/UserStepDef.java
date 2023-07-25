@@ -1,22 +1,18 @@
 package StefDefs;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StepDef {
-	WebDriver driver;
-		@Given("User launch Google page")
+public class UserStepDef {
+
+		@Given("User is on Login page")
 		public void user_launch_google_page() {
 			driver = new ChromeDriver();
 			driver.get("https://www.google.com/");
@@ -32,13 +28,7 @@ public class StepDef {
 		public void should_displayed_java_search_page1() {
 		   Assert.assertEquals(driver.getTitle(), "Selenium Tutorial - Google Search" );
 		}
-	@After 
-	public void attachScreenshot(Scenario scenario) {
-		if (scenario.isFailed()) {
-			TakesScreenshot Screen = (TakesScreenshot)driver;
-			byte[] imgByte = Screen.getScreenshotAs(OutputType.BYTES);
-			scenario.attach(imgByte, "image/png", "ImageOne");
-						
-		}
+	
 	}
+
 }
